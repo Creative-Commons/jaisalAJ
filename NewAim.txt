@@ -1,0 +1,4 @@
+Some question
+Aim: Develop a Servlet Application as per the UserLogin Details. 
+    If login is successful then forward user to "Welcome" page
+      else, show "Login failed" message.
