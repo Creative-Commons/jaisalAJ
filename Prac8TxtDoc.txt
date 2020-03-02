@@ -1,0 +1,53 @@
+Practical No.10: Develop a servlet application to authenticate User Login as per the registration details.
+                 If login successful, then forward user to Welcome page otherwise show login failure message.
+				 
+Student.html
+<html>
+<head>
+	<title>TODO supply a title</title>
+</head>
+<body>
+<center>
+<h1>RStudent Login</h1>
+<form method="post" action="stud_log">
+StudentName:<input type="text" name="name"/>
+<br><br>
+Password::<input type="password" name="pass"/>
+<br><br>
+<input type="Submit" value="Login"><br><br>
+<a href="register.html">register Now</a>
+</form></center></body>
+</html>
+
+Stud_log.java
+import java.sql.*;
+import java.io.*;
+import java.servlet.http.*;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException{
+	processRequest(request, response);
+	PrintWriter out=response.getWriter();
+	try{
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		Connection con = 
+		DriverManager.getConnection("jdbc:mysql://localhost/servlet","root","scott");
+		
+		PreparedStatement ps=con.prepareStatement("select * from register where name=? and password=?");
+		String name=request.getParameter("name");
+		String pass=request.getParameter("pass");
+		ps.setString(1,name);
+		ps.setString(2,pass);
+			ResultSet a = ps.executeQuery();
+			boolean status = a.next();
+			if(status==true)
+			{
+				out.print("Welcome user");
+			}
+			else
+			{
+				out.print("Sorry please try again");
+			}
+		}catch(Exception e){}
+	}
