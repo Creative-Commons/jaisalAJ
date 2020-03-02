@@ -1,0 +1,8 @@
+1. Develop presentation layer of lib mgmt . - Library System
+2. Develop suitable database and perform operations of lib mgmt . - Library System
+3. Develop businss logic for the same . - Library System
+4. Demonstratig Servlet lifecycle . -Servlet Example(EO)
+5. Create emp table in emp database.Perform insert operation using JSP(Registration). -Registration
+6. Perform Retrieve operation for the same. -RegisterView
+7. javaBeans . - Practical8JB
+8. Based on Prac 5, authentic user login details and Welcome the user . -text Document 
